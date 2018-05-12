@@ -52,7 +52,7 @@ func NewHTML(mountPath string, overridePath string) *HTML {
 // Load a template
 func (h *HTML) Load(names ...string) error {
 	if h.layout == nil {
-		b, err := loadWithOverride(h.overridePath, "layout.tpl")
+		b, err := loadWithOverride(h.overridePath, "html-templates/layout.tpl")
 		if err != nil {
 			return err
 		}
