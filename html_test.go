@@ -7,7 +7,7 @@ import (
 )
 
 func TestRenderer(t *testing.T) {
-	r := New("/auth")
+	r := NewHTML("/auth", ".")
 
 	err := r.Load("login")
 	if err != nil {
