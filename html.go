@@ -57,7 +57,7 @@ func (h *HTML) Load(names ...string) error {
 			return err
 		}
 
-		h.layout, err = template.New("").Parse(string(b))
+		h.layout, err = template.New("").Funcs(h.funcMap).Parse(string(b))
 		if err != nil {
 			return errors.Wrap(err, "failed to load layout template")
 		}
