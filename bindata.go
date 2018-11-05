@@ -18,10 +18,13 @@
 // html-templates/totp2fa_remove_success.tpl (68B)
 // html-templates/totp2fa_setup.tpl (246B)
 // html-templates/totp2fa_validate.tpl (572B)
+// html-templates/twofactor_verify.tpl (356B)
 // email-templates/confirm_html.tpl (111B)
 // email-templates/confirm_txt.tpl (95B)
 // email-templates/recover_html.tpl (119B)
 // email-templates/recover_txt.tpl (103B)
+// email-templates/twofactor_verify_email_html.tpl (143B)
+// email-templates/twofactor_verify_email_txt.tpl (111B)
 
 package abrenderer
 
@@ -450,6 +453,26 @@ func htmlTemplatesTotp2fa_validateTpl() (*asset, error) {
 	return a, nil
 }
 
+var _htmlTemplatesTwofactor_verifyTpl = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x54\x8f\xc1\x4e\xf3\x30\x10\x06\xef\x79\x8a\xd5\xde\xdb\xa8\xff\xd9\xb6\xf4\x1f\x38\x17\x09\xee\xc8\xb1\x37\xd8\xaa\xe3\x8d\x9c\x35\x50\x2c\xbf\x3b\x0a\x45\x15\x9c\x77\xbf\xd1\x8c\x0a\x27\xf3\xbf\x4a\xe0\x12\x3f\x09\xac\xf7\x31\xbf\xc2\xbf\xd9\x82\x30\x5c\xb9\x16\xb0\xce\x71\xcd\xa2\xc6\x70\x32\x83\x9a\xb9\x2c\x60\x9d\x44\xce\x1a\x5b\x3b\xd6\x92\x7a\x47\x58\x48\x02\x7b\x8d\x8f\xe7\xa7\x67\x34\x03\x00\x80\x8a\x79\xad\x02\x72\x5d\x49\xa3\xd0\x87\x20\xb8\x64\xb7\x4d\xe3\xce\x38\x38\xce\x52\x38\x21\x64\xbb\x90\x46\xc7\x9e\x10\xd6\x64\x1d\x05\x4e\x9e\x8a\xc6\x87\xc3\x62\x63\x42\xf0\x71\xb3\x53\x22\xaf\x51\x4a\x25\x04\x5b\x85\x1d\x2f\x6b\x22\x21\x8d\x3c\xcf\x08\x6f\x36\x55\xfa\xf6\xa1\x7d\xd3\x3b\x1a\x35\x15\x18\x6f\x26\xad\xbd\x47\x09\x70\x74\x5b\x99\x5f\x84\x2f\x94\x7b\xff\x63\x17\xa2\xf7\x94\xef\x2a\xf7\xb7\xdf\xe0\xbd\x72\x34\xad\x51\xf6\xbd\xdf\x02\xa7\x2a\xc2\xf9\x87\xb1\xd5\x69\x89\x82\xe6\x7c\x51\xe3\xed\x60\x06\x35\xee\xa9\x66\xf8\x0a\x00\x00\xff\xff\x49\xe7\xd3\x02\x64\x01\x00\x00")
+
+func htmlTemplatesTwofactor_verifyTplBytes() ([]byte, error) {
+	return bindataRead(
+		_htmlTemplatesTwofactor_verifyTpl,
+		"html-templates/twofactor_verify.tpl",
+	)
+}
+
+func htmlTemplatesTwofactor_verifyTpl() (*asset, error) {
+	bytes, err := htmlTemplatesTwofactor_verifyTplBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "html-templates/twofactor_verify.tpl", size: 356, mode: os.FileMode(420), modTime: time.Unix(1541397352, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x86, 0x9a, 0xdf, 0x29, 0x99, 0xa0, 0xdd, 0x95, 0xd3, 0xe7, 0x7, 0x2b, 0x89, 0x9b, 0x2c, 0x46, 0xbe, 0xfc, 0xb4, 0xbe, 0xff, 0xc8, 0xd4, 0xd7, 0x2e, 0x83, 0xae, 0x67, 0x63, 0x89, 0x72, 0x3e}}
+	return a, nil
+}
+
 var _emailTemplatesConfirm_htmlTpl = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x6c\xcc\xc1\x0d\xc2\x30\x0c\x05\xd0\x7b\xa6\xf8\xea\x00\x44\xbd\x1b\x5f\x58\x80\x15\x8c\xe5\xca\x15\xa1\xae\x4c\x73\x40\x55\x76\x67\x81\x2e\xf0\xc8\x67\x7e\xc4\xb6\xac\xf9\xc1\x2f\x7a\x42\x54\xa3\x6f\x07\x55\x9f\xb9\xd0\x2b\x51\xb9\xd0\xce\xcf\x66\xf2\x35\x68\x5b\xf5\x0d\x12\x78\xda\x72\x9f\xce\xf3\xd6\xb3\x8d\x31\xa1\xb2\x5b\x1a\x55\x61\x1c\x01\xbd\x14\x77\x2e\xff\x00\x00\x00\xff\xff\xdc\x7c\x99\x43\x6f\x00\x00\x00")
 
 func emailTemplatesConfirm_htmlTplBytes() ([]byte, error) {
@@ -465,7 +488,7 @@ func emailTemplatesConfirm_htmlTpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "email-templates/confirm_html.tpl", size: 111, mode: os.FileMode(436), modTime: time.Unix(1525368498, 0)}
+	info := bindataFileInfo{name: "email-templates/confirm_html.tpl", size: 111, mode: os.FileMode(420), modTime: time.Unix(1541397320, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xc4, 0xb3, 0x4d, 0x8d, 0x81, 0xfb, 0x99, 0x57, 0x75, 0x7, 0xee, 0xa5, 0x25, 0xc2, 0x67, 0x98, 0x50, 0x46, 0x6e, 0xa7, 0xb8, 0x29, 0xb5, 0xa0, 0xe5, 0xa0, 0xa1, 0x93, 0x40, 0x9e, 0xaa, 0x5a}}
 	return a, nil
 }
@@ -485,7 +508,7 @@ func emailTemplatesConfirm_txtTpl() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "email-templates/confirm_txt.tpl", size: 95, mode: os.FileMode(436), modTime: time.Unix(1525368504, 0)}
+	info := bindataFileInfo{name: "email-templates/confirm_txt.tpl", size: 95, mode: os.FileMode(420), modTime: time.Unix(1541397320, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x12, 0x4b, 0xfa, 0x79, 0x6f, 0x99, 0x6e, 0x4d, 0x20, 0xec, 0xd2, 0x4e, 0x25, 0xab, 0x6, 0x6a, 0xac, 0xb8, 0xa9, 0x97, 0xac, 0x1e, 0x1e, 0x2f, 0x93, 0x47, 0xa3, 0x52, 0x77, 0xdc, 0xf, 0x5}}
 	return a, nil
 }
@@ -527,6 +550,46 @@ func emailTemplatesRecover_txtTpl() (*asset, error) {
 
 	info := bindataFileInfo{name: "email-templates/recover_txt.tpl", size: 103, mode: os.FileMode(436), modTime: time.Unix(1525719558, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x22, 0x57, 0x52, 0x4b, 0x75, 0x56, 0x90, 0x3d, 0x38, 0x67, 0xe7, 0x6c, 0x9a, 0xa6, 0xca, 0xc, 0x16, 0xec, 0xc1, 0x8e, 0x73, 0xe4, 0x5f, 0xa4, 0xf3, 0xe6, 0x5d, 0x35, 0x85, 0x26, 0x87, 0x7}}
+	return a, nil
+}
+
+var _emailTemplatesTwofactor_verify_email_htmlTpl = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x8c\xcd\xc1\x0d\xc2\x30\x0c\x05\xd0\x7b\xa6\xf8\xea\x00\x44\xe5\x6c\x2c\xb1\x01\x2b\x98\xd4\xc5\x11\x51\x53\x99\xe4\x00\x55\x76\x47\x6c\xc0\x02\xef\x91\xcd\x7c\xed\xcd\xaa\xe7\x8f\x42\x96\x25\x6f\x0f\x9c\x57\x41\xab\x78\xd7\xee\x90\x94\x6a\xdf\x1a\x45\x9b\x39\xd0\xdd\x11\x39\xd0\xce\xb7\xa2\xf2\x52\xa4\x92\xd3\x13\x24\x30\xd7\xf5\x32\x1d\xc7\xa9\x7b\x19\x63\x42\x64\x53\x57\x8a\xc2\x3f\x49\xfe\x1a\x76\x0e\xdf\x00\x00\x00\xff\xff\xa3\xae\xcf\x44\x8f\x00\x00\x00")
+
+func emailTemplatesTwofactor_verify_email_htmlTplBytes() ([]byte, error) {
+	return bindataRead(
+		_emailTemplatesTwofactor_verify_email_htmlTpl,
+		"email-templates/twofactor_verify_email_html.tpl",
+	)
+}
+
+func emailTemplatesTwofactor_verify_email_htmlTpl() (*asset, error) {
+	bytes, err := emailTemplatesTwofactor_verify_email_htmlTplBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "email-templates/twofactor_verify_email_html.tpl", size: 143, mode: os.FileMode(420), modTime: time.Unix(1541397312, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x57, 0x7d, 0xed, 0x5, 0xa8, 0xf9, 0x20, 0x37, 0x41, 0x51, 0xd6, 0x5e, 0xda, 0x8a, 0xbb, 0x7, 0xa8, 0x1b, 0xdf, 0x17, 0x6b, 0x96, 0xa2, 0xb3, 0x5d, 0xa3, 0x84, 0xa6, 0xf, 0xb0, 0x3a, 0xf8}}
+	return a, nil
+}
+
+var _emailTemplatesTwofactor_verify_email_txtTpl = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x34\xca\xb1\x0d\xc2\x40\x0c\x05\xd0\x9e\x29\xfe\x04\x14\x4c\xc2\x00\x69\xcc\x9d\x43\x4e\x58\xfe\x91\xcf\xa7\x28\x44\xd9\x1d\x51\xa4\x7f\x4f\x53\xe9\x8a\xc2\x75\x87\x78\xc5\x2a\x3d\x15\xb9\x28\x66\x9a\x71\x6b\xfe\x86\x35\xff\xa0\x79\x12\x3b\x47\xe0\x15\xdc\xba\x06\x92\x90\x91\x0b\xa3\x7d\x15\x52\xeb\x9f\x3e\x66\xc1\xe5\xa4\x14\x0e\xcf\xc9\x27\x3f\x8e\xfb\x08\x3b\xcf\xdb\x2f\x00\x00\xff\xff\x5b\x3c\x47\xec\x6f\x00\x00\x00")
+
+func emailTemplatesTwofactor_verify_email_txtTplBytes() ([]byte, error) {
+	return bindataRead(
+		_emailTemplatesTwofactor_verify_email_txtTpl,
+		"email-templates/twofactor_verify_email_txt.tpl",
+	)
+}
+
+func emailTemplatesTwofactor_verify_email_txtTpl() (*asset, error) {
+	bytes, err := emailTemplatesTwofactor_verify_email_txtTplBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "email-templates/twofactor_verify_email_txt.tpl", size: 111, mode: os.FileMode(420), modTime: time.Unix(1541397304, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x22, 0xf5, 0x36, 0x91, 0x8a, 0x89, 0xe0, 0x1a, 0x91, 0x5c, 0x82, 0x6c, 0x56, 0xf, 0xc3, 0x10, 0x45, 0xb8, 0xcb, 0x6f, 0x28, 0xcc, 0xb8, 0xea, 0x77, 0xe6, 0xa4, 0xca, 0xdc, 0xe7, 0x2c, 0xf4}}
 	return a, nil
 }
 
@@ -657,6 +720,8 @@ var _bindata = map[string]func() (*asset, error){
 
 	"html-templates/totp2fa_validate.tpl": htmlTemplatesTotp2fa_validateTpl,
 
+	"html-templates/twofactor_verify.tpl": htmlTemplatesTwofactor_verifyTpl,
+
 	"email-templates/confirm_html.tpl": emailTemplatesConfirm_htmlTpl,
 
 	"email-templates/confirm_txt.tpl": emailTemplatesConfirm_txtTpl,
@@ -664,6 +729,10 @@ var _bindata = map[string]func() (*asset, error){
 	"email-templates/recover_html.tpl": emailTemplatesRecover_htmlTpl,
 
 	"email-templates/recover_txt.tpl": emailTemplatesRecover_txtTpl,
+
+	"email-templates/twofactor_verify_email_html.tpl": emailTemplatesTwofactor_verify_email_htmlTpl,
+
+	"email-templates/twofactor_verify_email_txt.tpl": emailTemplatesTwofactor_verify_email_txtTpl,
 }
 
 // AssetDir returns the file names below a certain
@@ -708,10 +777,12 @@ type bintree struct {
 
 var _bintree = &bintree{nil, map[string]*bintree{
 	"email-templates": &bintree{nil, map[string]*bintree{
-		"confirm_html.tpl": &bintree{emailTemplatesConfirm_htmlTpl, map[string]*bintree{}},
-		"confirm_txt.tpl":  &bintree{emailTemplatesConfirm_txtTpl, map[string]*bintree{}},
-		"recover_html.tpl": &bintree{emailTemplatesRecover_htmlTpl, map[string]*bintree{}},
-		"recover_txt.tpl":  &bintree{emailTemplatesRecover_txtTpl, map[string]*bintree{}},
+		"confirm_html.tpl":                &bintree{emailTemplatesConfirm_htmlTpl, map[string]*bintree{}},
+		"confirm_txt.tpl":                 &bintree{emailTemplatesConfirm_txtTpl, map[string]*bintree{}},
+		"recover_html.tpl":                &bintree{emailTemplatesRecover_htmlTpl, map[string]*bintree{}},
+		"recover_txt.tpl":                 &bintree{emailTemplatesRecover_txtTpl, map[string]*bintree{}},
+		"twofactor_verify_email_html.tpl": &bintree{emailTemplatesTwofactor_verify_email_htmlTpl, map[string]*bintree{}},
+		"twofactor_verify_email_txt.tpl":  &bintree{emailTemplatesTwofactor_verify_email_txtTpl, map[string]*bintree{}},
 	}},
 	"html-templates": &bintree{nil, map[string]*bintree{
 		"layout.tpl":                  &bintree{htmlTemplatesLayoutTpl, map[string]*bintree{}},
@@ -732,6 +803,7 @@ var _bintree = &bintree{nil, map[string]*bintree{
 		"totp2fa_remove_success.tpl":  &bintree{htmlTemplatesTotp2fa_remove_successTpl, map[string]*bintree{}},
 		"totp2fa_setup.tpl":           &bintree{htmlTemplatesTotp2fa_setupTpl, map[string]*bintree{}},
 		"totp2fa_validate.tpl":        &bintree{htmlTemplatesTotp2fa_validateTpl, map[string]*bintree{}},
+		"twofactor_verify.tpl":        &bintree{htmlTemplatesTwofactor_verifyTpl, map[string]*bintree{}},
 	}},
 }}
 
