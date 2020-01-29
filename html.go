@@ -87,7 +87,7 @@ func (h *HTML) Load(names ...string) error {
 }
 
 // Render a view
-func (h *HTML) Render(ctx context.Context, page string, data authboss.HTMLData) (output []byte, contentType string, err error) {
+func (h *HTML) Render(_ context.Context, page string, data authboss.HTMLData) (output []byte, contentType string, err error) {
 	buf := &bytes.Buffer{}
 
 	tpl, ok := h.templates[page]
