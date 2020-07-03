@@ -12,8 +12,8 @@ import (
 	"path"
 	"strings"
 
-	"github.com/pkg/errors"
-	"github.com/volatiletech/authboss"
+	"github.com/friendsofgo/errors"
+	"github.com/volatiletech/authboss/v3"
 )
 
 // Email renderer for authboss, renders using html/template
