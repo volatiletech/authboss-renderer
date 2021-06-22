@@ -1,6 +1,6 @@
 <h1>Confirm your authenticator code to complete setup</h1>
 <img src="{{mountpathed "2fa/totp/qr"}}" alt="2fa setup qr code" /><br />
-<span>Key: {{.totpsecret}}</span>
+<span>Key: {{.totp_secret}}</span>
 <form action="{{mountpathed "2fa/totp/confirm"}}" method="POST">
     {{with .error}}{{.}}<br />{{end}}
     {{with .errors}}{{range .code}}<span>{{.}}</span><br />{{end}}{{end -}}
