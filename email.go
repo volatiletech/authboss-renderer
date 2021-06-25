@@ -9,7 +9,6 @@ import (
 	htmltemplate "html/template"
 	txttemplate "html/template"
 	"io"
-	"path"
 	"strings"
 
 	"github.com/friendsofgo/errors"
@@ -34,27 +33,6 @@ type Email struct {
 	txtTemplates  map[string]*txttemplate.Template
 
 	funcMap map[string]interface{}
-}
-
-// NewEmail renderer
-func NewEmail(mountPath, overridePath string) *Email {
-	e := &Email{
-		mountPath:     mountPath,
-		overridePath:  overridePath,
-		htmlTemplates: make(map[string]*htmltemplate.Template),
-		txtTemplates:  make(map[string]*txttemplate.Template),
-		funcMap: txttemplate.FuncMap{
-			"title": strings.Title,
-			"mountpathed": func(location string) string {
-				if mountPath == "/" {
-					return location
-				}
-				return path.Join(mountPath, location)
-			},
-		},
-	}
-
-	return e
 }
 
 // Load a template
@@ -86,7 +64,7 @@ func (e *Email) Load(names ...string) error {
 }
 
 // Render a view
-func (e *Email) Render(ctx context.Context, page string, data authboss.HTMLData) (output []byte, contentType string, err error) {
+func (e *Email) Render(_ context.Context, page string, data authboss.HTMLData) (output []byte, contentType string, err error) {
 	buf := &bytes.Buffer{}
 
 	var exe executor
