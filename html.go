@@ -3,6 +3,7 @@ package abrenderer
 import (
 	"bytes"
 	"context"
+	"embed"
 	"fmt"
 	"html/template"
 	"path"
@@ -22,8 +23,10 @@ type HTML struct {
 	mountPath    string
 	overridePath string
 
-	layout    *template.Template
-	templates map[string]*template.Template
+	layout      *template.Template
+	templates   map[string]*template.Template
+	templatesFS embed.FS
+	isEmbed     bool
 
 	funcMap map[string]interface{}
 }
@@ -34,6 +37,29 @@ func NewHTML(mountPath string, overridePath string) *HTML {
 		mountPath:    mountPath,
 		overridePath: overridePath,
 		templates:    make(map[string]*template.Template),
+
+		funcMap: template.FuncMap{
+			"title": strings.Title,
+			"mountpathed": func(location string) string {
+				if mountPath == "/" {
+					return location
+				}
+				return path.Join(mountPath, location)
+			},
+		},
+	}
+
+	return h
+}
+
+// NewHTMLFS renderer is like NewHTML but with fs file system support
+func NewHTMLFS(mountPath string, overridePath string, fs embed.FS) *HTML {
+	h := &HTML{
+		mountPath:    mountPath,
+		overridePath: overridePath,
+		templates:    make(map[string]*template.Template),
+		templatesFS:  fs,
+		isEmbed:      true,
 
 		funcMap: template.FuncMap{
 			"title": strings.Title,
@@ -75,12 +101,21 @@ func (h *HTML) Load(names ...string) error {
 			return err
 		}
 
-		_, err = clone.New("authboss").Funcs(h.funcMap).Parse(string(b))
-		if err != nil {
-			return errors.Wrapf(err, "failed to load template for page %s", n)
+		if h.isEmbed {
+			FSPath := fmt.Sprintf("%s/%s", h.overridePath, filename)
+			tpl, err := template.New(path.Base(FSPath)).Funcs(h.funcMap).ParseFS(h.templatesFS, FSPath)
+			if err != nil {
+				return errors.Wrapf(err, "failed to load embedded template for page %s", n)
+			}
+			h.templates[n] = tpl
+		} else {
+			_, err = clone.New("authboss").Funcs(h.funcMap).Parse(string(b))
+			if err != nil {
+				return errors.Wrapf(err, "failed to load template for page %s", n)
+			}
+			h.templates[n] = clone
 		}
 
-		h.templates[n] = clone
 	}
 
 	return nil
