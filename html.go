@@ -79,7 +79,7 @@ func (h *HTML) Load(names ...string) error {
 		FSPath := filepath.Join(h.overridePath, filename)
 		tpl, err := template.New(path.Base(FSPath)).Funcs(h.funcMap).ParseFS(h.templatesFS, FSPath)
 		if err != nil {
-			return errors.Wrapf(err, "failed to load embedded template for page %s", n)
+			return errors.Wrapf(err, "failed to load template for page %s", n)
 		}
 		h.templates[n] = tpl
 
