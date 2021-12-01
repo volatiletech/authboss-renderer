@@ -76,8 +76,8 @@ func (h *HTML) Load(names ...string) error {
 	for _, n := range names {
 		filename := fmt.Sprintf("html-templates/%s.tpl", n)
 
-		FSPath := filepath.Join(h.overridePath, filename)
-		tpl, err := template.New(path.Base(FSPath)).Funcs(h.funcMap).ParseFS(h.templatesFS, FSPath)
+		fspath := filepath.Join(h.overridePath, filename)
+		tpl, err := template.New(path.Base(fspath)).Funcs(h.funcMap).ParseFS(h.templatesFS, fspath)
 		if err != nil {
 			return errors.Wrapf(err, "failed to load template for page %s", n)
 		}
